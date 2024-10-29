@@ -1,0 +1,62 @@
+/* Estilos para las cards */
+
+body
+{
+  background-color: #2196F3;
+   
+}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    scale: 1.1;
+
+}
+
+
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-genres {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card-score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+/* Estilos para el filtro */
+.filter-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.filter-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}

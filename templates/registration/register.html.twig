@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+    <form method="post" id="login-form">
+        <h1>Register</h1>
+
+        {# Mostrar errores globales del formulario #}
+        {{ form_errors(registrationForm) }}
+
+        {# Inicia el formulario de Symfony #}
+        {{ form_start(registrationForm) }}
+
+        {# Campo de nombre de usuario #}
+        {{ form_row(registrationForm.username, {
+            'attr': {
+                'placeholder': 'User',
+                'id': 'user',
+                'required': 'required'
+            }
+        }) }}
+
+        {{ form_row(registrationForm.email,
+            {
+                'attr':
+                {
+                    'placeholder':'Email',
+                    'id':'email',
+                    'required':'required'
+                }
+            }) }}
+
+        {# Campo de contraseña #}
+        {{ form_row(registrationForm.plainPassword, {
+            'label': 'Password',
+            'attr': {
+                'placeholder': 'Password',
+                'id': 'password',
+                'required': 'required'
+            }
+        }) }}
+
+
+
+        {#Campo de acuerdo de términos y condiciones #}
+        <div class="form-check">
+            {{ form_row(registrationForm.agreeTerms) }}
+        </div>
+
+        {# Botón de registro #}
+        <input type="submit" class="btn" value="Register">
+
+
+
+        {{ form_end(registrationForm) }}
+    </form>
+
+
+
+
+{% endblock %}

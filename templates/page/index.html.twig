@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}index{% endblock %}
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+ {% endblock %}
+{% block body %}
+    {% if app.user %}
+    <h1> HOLA MUNDO</h1>
+    {% else %}
+        <h1>no estás logueado</h1>
+
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+    <form method="post" id="login-form">
+        {% if error %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
+        {% if app.user %}
+            <div class="mb-3">
+                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+            </div>
+        {% endif %}
+
+        <h1>HOLA MUNDO</h1>
+
+        <input type="text" value="{{ last_username }}" name="_username" id="user" placeholder="User" required autofocus>
+
+        <input type="password" name="_password" id="password" placeholder="Password" required>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <input type="submit" class="btn" name="login" id="login" value="Login">
+        <input type="button" id="register" value="Register">
+
+    </form>
+
+    <div class="slider">
+        <div class="item">
+            <img src="{{ asset('img/imagen1.jpeg') }}" alt="Slide 1">
+            <div><h1>Gaming Hub</h1></div>
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/imagen2.jpeg') }}" alt="Slide 2">
+        </div>
+        <div class="item">
+            <img src="{{ asset('img/imagen3.jpeg') }}" alt="Slide 3">
+        </div>
+
+        <button id="prev"><</button>
+        <button id="next">></button>
+    </div>
+
+    <script src="{{ asset('scripts/script.js') }}"></script>
+{% endblock %}

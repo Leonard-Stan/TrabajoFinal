@@ -26,20 +26,15 @@ security:
                 path: app_logout
                 target: app_login
 
-            security:
-                access_control:
-                - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }  # Permet accedir sense autenticació
-                - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }  # Permet accedir sense autenticació
-                - { path: ^/, roles: IS_AUTHENTICATED_FULLY }  # Requereix autenticació per a totes les altres rutes
-
+    # Col·loca el control d'accés aquí, fora del firewall
+    access_control:
+     #   - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }  # Permet accedir sense autenticació
+      #  - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }  # Permet accedir sense autenticació
+       # - { path: ^/, roles: IS_AUTHENTICATED_FULLY }  # Requereix autenticació per a totes les altres rutes
 
 when@test:
     security:
         password_hashers:
-            # By default, password hashers are resource intensive and take time. This is
-            # important to generate secure password hashes. In tests however, secure hashes
-            # are not important, waste resources and increase test times. The following
-            # reduces the work factor to the lowest possible values.
             Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
                 algorithm: auto
                 cost: 4 # Lowest possible value for bcrypt
